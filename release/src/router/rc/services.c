@@ -20982,6 +20982,10 @@ void setup_leds()
 #endif
 
 #if defined(RTAX82U) || defined(GTAX11000_PRO) || defined(GTAXE16000) || defined(GTAX6000)
+		if (!pids("ledg")) {
+			start_ledg();
+			sleep(1);
+		}
 		kill_pidfile_s("/var/run/ledg.pid", SIGTSTP);
 #endif
 #if defined(XT12) || defined(ET12)
